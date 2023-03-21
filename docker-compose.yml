@@ -6,11 +6,12 @@ services:
     restart: always
     environment:
       - TRILIUM_DATA_DIR=/home/node/trilium-data
-    ports:
-      - 8080:8080
+#    ports:
+#      - 8080:8080
     volumes:
       - ./trilium-data:/home/node/trilium-data
     networks:
-      default_network:
+      - reverse-proxy
 networks:
-  default_network:
+  reverse-proxy:
+    external: true
